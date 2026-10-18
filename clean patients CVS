@@ -1,0 +1,61 @@
+PatientID,Age,Gender,SystolicBP,DiastolicBP,Diagnosis,Department,AdmissionDate,DischargeDate,Age_OutlierFlag,SystolicBP_OutlierFlag,DiastolicBP_OutlierFlag,DateOrderFlag,Age_Imputed,SystolicBP_Imputed,DiastolicBP_Imputed,LengthOfStay
+P1027,34,Female,121,61,Fracture,General Medicine,2024-06-10,,False,False,False,True,False,False,False,
+P1002,65,Male,102,60,Diabetes,Orthopedics,2024-07-15,2024-07-21,False,False,False,False,False,False,False,6.0
+P1041,54,Male,131,73,Fracture,Cardiology,2024-08-15,2024-08-18,False,False,False,False,True,False,False,3.0
+P1056,69,Female,158,66,Heart Failure,General Medicine,2024-06-12,2024-06-13,False,False,False,False,False,False,False,1.0
+P1018,43,Male,108,102,Diabetes,Cardiology,2024-09-08,2024-09-16,False,False,False,False,False,False,False,8.0
+P1050,25,Male,130,83,Diabetes,Orthopedics,2024-08-15,2024-08-19,False,False,False,False,False,True,False,4.0
+P1052,73,Male,166,73,Pneumonia,Pulmonology,2024-04-19,2024-04-27,False,False,False,False,False,False,False,8.0
+P1017,54,Male,102,92,Fracture,General Medicine,2024-02-08,2024-02-12,False,False,False,False,True,False,False,4.0
+P1033,39,Male,166,97,Asthma,Cardiology,2024-06-15,,False,False,False,False,False,False,False,
+P1007,73,Male,126,84,Diabetes,General Medicine,2024-07-28,2024-08-03,False,False,False,False,False,False,False,6.0
+P1031,38,Female,96,76,Diabetes,General Medicine,2024-03-09,2024-03-21,False,False,False,False,False,False,False,12.0
+P1015,39,Male,105,89,Pneumonia,Cardiology,2024-08-23,2024-08-30,False,False,False,False,False,False,False,7.0
+P1021,33,Male,107,64,Heart Failure,Endocrinology,2024-04-21,2024-04-28,False,False,False,False,False,False,False,7.0
+P1036,27,Male,130,103,Hypertension,Cardiology,2024-09-14,2024-09-18,False,False,False,False,False,False,False,4.0
+P1020,88,Male,154,74,Hypertension,General Medicine,2024-05-30,2024-06-13,False,False,False,False,False,False,False,14.0
+P1013,58,Male,119,72,Pneumonia,Cardiology,2024-08-16,2024-08-18,False,False,False,False,False,False,False,2.0
+P1051,24,Female,115,62,Diabetes,General Medicine,2024-02-28,2024-03-10,False,False,False,False,False,False,False,11.0
+P1029,22,Unknown,139,84,Hypertension,Endocrinology,2024-05-13,2024-05-25,False,False,False,False,False,False,False,12.0
+P1032,84,Female,106,73,Pneumonia,Pulmonology,2024-01-28,2024-02-09,False,False,False,False,False,False,False,12.0
+P1010,54,Female,108,89,Pneumonia,Cardiology,2024-06-06,2024-06-18,True,False,False,False,True,False,False,12.0
+P1044,48,Female,130,100,Pneumonia,Cardiology,2024-01-21,2024-02-02,False,True,False,False,False,True,False,12.0
+P1012,24,Female,109,65,Unknown,General Medicine,2024-08-08,2024-08-15,False,False,False,False,False,False,False,7.0
+P1022,37,Male,130,83,Heart Failure,Cardiology,2024-02-24,2024-02-27,False,False,False,False,False,True,True,3.0
+P1049,19,Male,130,67,Hypertension,General Medicine,2024-08-21,2024-08-31,False,False,False,False,False,False,False,10.0
+P1037,58,Male,153,74,Diabetes,Orthopedics,2024-09-05,2024-09-15,False,False,False,False,False,False,False,10.0
+P1001,66,Female,138,97,Heart Failure,Orthopedics,2024-08-20,2024-08-31,False,False,False,False,False,False,False,11.0
+P1016,61,Male,145,92,Fracture,Pulmonology,2024-06-02,2024-06-07,False,False,False,False,False,False,False,5.0
+P1040,89,Female,115,88,Heart Failure,Orthopedics,2024-02-19,2024-03-02,False,False,False,False,False,False,False,12.0
+P1048,42,Female,135,68,Heart Failure,Cardiology,2024-07-22,2024-07-29,False,False,False,False,False,False,False,7.0
+P1030,79,Male,117,84,Fracture,General Medicine,2024-05-15,2024-05-22,False,False,False,False,False,False,False,7.0
+P1004,79,Female,142,84,Hypertension,Pulmonology,2024-05-09,2024-05-15,False,False,False,False,False,False,False,6.0
+P1035,65,Male,130,96,Heart Failure,Pulmonology,2024-01-20,2024-01-25,False,True,False,False,False,True,False,5.0
+P1045,76,Male,165,71,Asthma,General Medicine,2024-10-18,2024-10-30,False,False,False,False,False,False,False,12.0
+P1055,51,Female,134,104,Fracture,Orthopedics,2024-01-14,,False,False,False,False,False,False,False,
+P1009,63,Female,98,64,Fracture,Orthopedics,2024-01-29,2024-02-05,False,False,False,False,False,False,False,7.0
+P1034,49,Female,126,80,Fracture,Pulmonology,2024-09-23,2024-10-06,False,False,False,False,False,False,False,13.0
+P1043,47,Male,131,83,Heart Failure,Pulmonology,2024-04-16,2024-04-17,False,False,False,False,False,False,False,1.0
+P1024,89,Female,169,103,Hypertension,Pulmonology,2024-08-22,2024-08-31,False,False,False,False,False,False,False,9.0
+P1005,58,Male,130,83,Asthma,Cardiology,2024-09-14,2024-09-19,False,False,False,False,False,True,True,5.0
+P1059,54,Female,96,93,Asthma,Cardiology,2024-07-23,2024-07-25,False,False,False,False,False,False,False,2.0
+P1006,23,Male,151,73,Pneumonia,General Medicine,2024-01-26,2024-02-08,False,False,False,False,False,False,False,13.0
+P1011,57,Female,132,90,Hypertension,Orthopedics,2024-10-19,2024-10-22,False,False,False,False,False,False,False,3.0
+P1000,49,Male,105,76,Heart Failure,General Medicine,2024-01-27,2024-02-09,False,False,False,False,False,False,False,13.0
+P1038,54,Male,130,69,Diabetes,General Medicine,2024-03-24,2024-04-02,False,False,False,False,False,True,False,9.0
+P1057,29,Male,127,100,Hypertension,Cardiology,2024-02-16,2024-02-18,False,False,False,False,False,False,False,2.0
+P1053,70,Female,119,79,Hypertension,Pulmonology,2024-05-20,2024-05-27,False,False,False,False,False,False,False,7.0
+P1026,54,Female,128,70,Hypertension,Endocrinology,2024-04-30,2024-05-02,True,False,False,False,True,False,False,2.0
+P1042,47,Female,145,87,Diabetes,Orthopedics,2024-07-29,2024-08-10,False,False,False,False,False,False,False,12.0
+P1046,41,Female,107,104,Pneumonia,Cardiology,2024-05-13,2024-05-24,False,False,False,False,False,False,False,11.0
+P1008,59,Unknown,154,74,Hypertension,Cardiology,2024-03-01,2024-03-03,False,False,False,False,False,False,False,2.0
+P1058,82,Male,116,64,Asthma,Orthopedics,2024-08-11,2024-08-15,False,False,False,False,False,False,False,4.0
+P1014,75,Female,144,70,Heart Failure,Pulmonology,2024-08-03,,False,False,False,False,False,False,False,
+P1028,77,Male,140,66,Heart Failure,Pulmonology,2024-06-12,2024-06-23,False,False,False,False,False,False,False,11.0
+P1039,74,Female,101,102,Diabetes,Cardiology,2024-07-08,2024-07-10,False,False,False,False,False,False,False,2.0
+P1023,47,Female,164,101,Asthma,Pulmonology,2024-10-05,2024-10-17,False,False,False,False,False,False,False,12.0
+P1019,49,Female,139,83,Diabetes,Endocrinology,2024-05-15,2024-05-25,False,False,True,False,False,False,True,10.0
+P1003,54,Female,143,100,Heart Failure,Pulmonology,2024-05-11,2024-05-25,False,False,False,False,True,False,False,14.0
+P1054,68,Male,135,103,Hypertension,Orthopedics,2024-05-29,2024-06-06,False,False,False,False,False,False,False,8.0
+P1025,79,Male,138,70,Hypertension,Orthopedics,2024-07-12,2024-07-22,False,False,False,False,False,False,False,10.0
+P1047,30,Female,137,102,Unknown,Pulmonology,2024-09-24,2024-10-04,False,False,False,False,False,False,False,10.0
