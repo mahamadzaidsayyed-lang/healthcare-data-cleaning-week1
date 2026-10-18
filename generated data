@@ -1,0 +1,74 @@
+"""Generate a simulated (fully synthetic) hospital admissions dataset with
+deliberately planted data quality problems. No real patient data is used."""
+import numpy as np
+import pandas as pd
+
+rng = np.random.default_rng(42)
+N = 60
+
+diagnoses = ["Hypertension", "Diabetes", "Pneumonia", "Asthma", "Fracture", "Heart Failure"]
+departments = ["Cardiology", "Endocrinology", "Pulmonology", "Orthopedics", "General Medicine"]
+
+admit = pd.to_datetime("2024-01-01") + pd.to_timedelta(rng.integers(0, 300, N), unit="D")
+stay = rng.integers(1, 15, N)
+
+df = pd.DataFrame({
+    "PatientID": [f"P{1000 + i}" for i in range(N)],
+    "Age": rng.integers(18, 90, N).astype(object),
+    "Gender": rng.choice(["Male", "Female"], N).astype(object),
+    "SystolicBP": rng.integers(95, 170, N).astype(object),
+    "DiastolicBP": rng.integers(60, 105, N).astype(object),
+    "Diagnosis": rng.choice(diagnoses, N).astype(object),
+    "Department": rng.choice(departments, N).astype(object),
+    "AdmissionDate": admit.strftime("%Y-%m-%d").astype(object),
+    "DischargeDate": (admit + pd.to_timedelta(stay, unit="D")).strftime("%Y-%m-%d").astype(object),
+})
+
+# ---- 1. Missing values -------------------------------------------------
+for col, idx in {"Age": [3, 17, 41], "Gender": [8, 29], "SystolicBP": [5, 22, 38, 50],
+                 "DiastolicBP": [5, 22], "Diagnosis": [12, 47], "DischargeDate": [14, 33, 55]}.items():
+    df.loc[idx, col] = np.nan
+
+# ---- 2. Outliers / impossible values ------------------------------------
+df.loc[10, "Age"] = 250
+df.loc[26, "Age"] = -4
+df.loc[35, "SystolicBP"] = 400
+df.loc[44, "SystolicBP"] = 20
+df.loc[19, "DiastolicBP"] = 300
+
+# ---- 3. Inconsistent categories ----------------------------------------
+df.loc[[0, 6, 13, 21], "Gender"] = "M"
+df.loc[[1, 9, 24], "Gender"] = "F"
+df.loc[[2, 30], "Gender"] = "male"
+df.loc[[4, 40], "Gender"] = "FEMALE"
+df.loc[[7, 18], "Diagnosis"] = "diabetes "
+df.loc[[11, 36], "Diagnosis"] = "HTN"
+df.loc[[15, 52], "Diagnosis"] = "pneumonia"
+df.loc[[23, 58], "Diagnosis"] = " Asthma"
+
+# ---- 4. Mixed date formats ---------------------------------------------
+def reformat(row_idx, col, fmt):
+    d = pd.to_datetime(df.loc[row_idx, col], errors="coerce")
+    if pd.notna(d):
+        df.loc[row_idx, col] = d.strftime(fmt)
+
+for i in [1, 9, 20, 28, 45]:
+    reformat(i, "AdmissionDate", "%d-%b-%Y")
+for i in [3, 16, 31, 49]:
+    reformat(i, "AdmissionDate", "%B %d, %Y")
+for i in [2, 25, 42]:
+    reformat(i, "DischargeDate", "%d-%b-%Y")
+
+# ---- 5. Logical error: discharge before admission -----------------------
+df.loc[27, "DischargeDate"] = "2024-01-02"
+df.loc[27, "AdmissionDate"] = "2024-06-10"
+
+# ---- 6. Duplicates (exact and near-duplicate) ---------------------------
+exact = df.iloc[[4, 15, 33, 48]]
+near = df.iloc[[7]].copy()
+near["Gender"] = near["Gender"].astype(str) + " "
+df = pd.concat([df, exact, near], ignore_index=True)
+
+df = df.sample(frac=1, random_state=7).reset_index(drop=True)
+df.to_csv("data/raw_patients.csv", index=False)
+print(f"Wrote data/raw_patients.csv with {len(df)} rows")
